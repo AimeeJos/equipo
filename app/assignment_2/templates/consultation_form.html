@@ -1,0 +1,89 @@
+<br>
+<div class=" errorlist" >
+  {% comment %} <h6>ERROR!</h6> {% endcomment %}
+  {%if errors%}
+    {% for error in errors%}
+    <p class="alert alert-danger" role="alert">Invalid Field <b> {{ error.label }}</b>: {{ error.help_text }}</p>
+    {% endfor %}
+  {% endif %}
+  {% for field in form %}
+      {% for error in field.errors %}        
+        <p class="alert alert-danger" role="alert">Invalid Field <b> {{ field.label }}</b>: {{ field.help_text }}</p>
+        {% endfor %}
+        {% endfor %}
+        <p>{{ form.non_field_errors }}</p>
+</div>
+
+
+  
+<form action="#" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container" style="padding: 5px; margin-top: 2px; width: 100%;">
+      <h3 style="text-align: center;">Moqzilla</h3>
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-2 col-xl-2 col-l-2">
+          <button class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i></button>
+          <button class="btn btn-outline-secondary"><i class="bi bi-arrow-right"></i></button>
+          <button class="btn btn-outline-secondary"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="col-sm-12 col-md-10 col-xl-10 col-l-10">{{ form.ip }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.clinic_name.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.clinic_name }}</div>
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.logo.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.logo }}</div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.physician_name.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.physician_name }}</div>
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.physician_contact.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.physician_contact }}</div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.patient_first.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.patient_first }}</div>
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.patient_last.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.patient_last }}</div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.patient_dob.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.patient_dob }}</div>
+        <div class="col-sm-12 col-md-1 col-xl-1 col-l-1">{{ form.patient_contact.label }}</div>
+        <div class="col-sm-12 col-md-5 col-xl-5 col-l-5">{{ form.patient_contact }}</div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xl-12 col-l-12">{{ form.chief_complaint.label }}</div>
+        <div class="col-sm-12 col-md-12 col-xl-12 col-l-12">{{ form.chief_complaint }}</div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xl-12 col-l-12">{{ form.consultation_note.label }}</div>
+        <div class="col-sm-12 col-md-12 col-xl-12 col-l-12">{{ form.consultation_note }}</div>
+      </div>
+      <br>
+
+      <div class="row">
+          <div class="col-sm-12 col-md-2 col-xl-2 col-l-2"></div>
+          <div class="col-sm-12 col-md-8 col-xl-8 col-l-8">
+              <div class="form-group">
+                  <input type="submit" class="form-control btn btn-primary" value="Generate Report">
+              </div>
+          </div>
+          <div class="col-sm-12 col-md-2 col-xl-2 col-l-2"></div>
+      </div>
+  </div>
+</form>
+
+
